@@ -1,0 +1,1 @@
+# next-maven-snapshot
