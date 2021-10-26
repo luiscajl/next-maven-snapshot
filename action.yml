@@ -1,0 +1,14 @@
+name: "next-maven-snapshot"
+description: "Set new snapshot version on develop branch pom"
+runs:
+  using: "composite"
+  steps:
+  - name: New snapshot
+    shell: bash
+    run: |
+      mvn -B versions:set -DnextSnapshot -DgenerateBackupPoms=false
+  - name: Next snapshot
+    uses: EndBug/add-and-commit@v7
+    with:
+      message: next-snapshot  
+      branch: develop 
